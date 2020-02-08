@@ -12,9 +12,13 @@ function onClick(event) {
     const cl = event.currentTarget;
     console.log("My id is", cl.id);
 
-    const num = parseInt(cl.id.replace('sq', ''));
-    console.log(num);
-    // console.log(`onClick${i}`);
+    // cl.innerText - то, что написано на кнопке (внутри <div>)
+    const num = parseInt(cl.innerText);
+    // если написано не число - ничего не делаем
+    if (isNaN(num))
+    {
+        return;
+    }
 
     if (num % 5 === 0 && num % 3 === 0) {
         cl.classList.add("fizzbuzz_selected");
