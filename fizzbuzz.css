@@ -1,82 +1,171 @@
+body{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
 #outer-container {
-  display:grid;
-  height: 95vh;
-  grid-template-rows: 1fr 3fr 5fr;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-  "header"
-  "register"
-  "play_area";
-  }
-  .header{
-      grid-area: header;
-      background-color: violet;
-      height: 10vh;
-      }
-  h1{
-      text-transform:uppercase;
-      color:white;
-      text-align: center;
-      font-size: 45px;
-      font-weight:1000;
-  
-  } 
-  .register{
-  grid-area: register;
-  height: 25vh;
-  background-color: seagreen;
-  }
-  .start{
+display:grid;
+height: 95vh;
+grid-template-rows: 1fr 3fr 1fr 5fr;
+grid-template-columns: 1fr;
+grid-template-areas:
+"header"
+"register"
+"rules"
+"play_area";
+}
+.header{
+    grid-area: header;
     display:flex;
-  }
-  #play_area {
-      grid-area: play_area;
-      width: 85%;
-      height: 65vh;
-      margin:20px auto;
-      font: .9em/1.2 Arial, Helvetica, sans-serif;
+    background-color: rgb(168, 152, 168);
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+
     }
-  #game_grid {
-      display:grid;
-      grid-gap: 10px;
-      grid-template-columns: repeat(auto-fill, minmax(40px, 60px));
-      grid-auto-rows: 40px;
-  }
-   .cell {
-     display:flex;
-      border-radius: 5px;
-      padding: 5px;
-      border: 2px solid black;
-      background-color: blanchedalmond;
-      align-items: center;
-      justify-content: center;
-    }  
-  .fizz{
-  
-    }
-  .buzz{
-  
-  }
-  .fizzbuzz{
-      
-  }
-  
-  
-  .fizz_selected {
-    background: red;
-    color: white;
-  }
-  .buzz_selected {
-    background: blue;
-    color: white;
-  }
-  .fizzbuzz_selected {
-    background: violet;
-    color: white;
-  }
-  
-  @media (max-width: 576px){
-      #game_grid {
-          grid-template-columns: 1fr 1f 1fr;
-              }
+h1{
+    text-transform:uppercase;
+    text-align: center;
+    font-size: 45px;
+    font-weight:1000;
+    margin: 50px;
+} 
+
+.rules {
+grid-area: rules;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-color: rgba(255, 193, 177, 0.918);
+}
+.register{
+grid-area: register;
+display:flex;
+justify-content: space-around;
+align-items: center;
+height: 25vh;
+background-color: khaki;
+}
+
+.form_1{
+ display: flex;
+ align-items: center;
+ margin: 30px;
+}
+.form_2{
+ display:flex;
+ align-items: center;
+ margin: 30px;
+}
+.btnReset{
+  background-color: white;
+  border-color: #555555;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.btnone{
+  background-color: white;
+  border-color: #555555;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 40px;
+}
+
+input[type=number] {
+  padding: 5px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid  rgb(168, 152, 168);
+  border-radius: 4px;
+}
+
+.fizzBtn{
+  background-color: #4CAF50; 
+  border-color: darkgreen;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.buzzBtn{
+  background-color:#008CBA; 
+  border-color: blue;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.fizzbuzzBtn{
+  background-color:#f44336;
+  border-color: red;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#play_area {
+    grid-area: play_area;
+    width: 85%;
+    height: 65vh;
+    margin:20px auto;
       }
+#game_grid {
+    display:grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 60px));
+    grid-auto-rows: 40px;
+}
+ .cell {
+    display:flex;
+    border-radius: 5px;
+    padding: 5px;
+    border: 2px solid black;
+    background-color: blanchedalmond;
+    align-items: center;
+    justify-content: center;
+  }  
+
+.buzz_selected {    
+  background: #008CBA;
+  color: white;
+}
+.fizz_selected {
+  background: #4CAF50;
+  color: white;
+}
+.fizzbuzz_selected {
+  background: #f44336;
+  color: white;
+}
+
+@media (max-width: 576px){
+ .rules {
+  display: none;
+}
+}

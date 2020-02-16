@@ -4,26 +4,46 @@
     <meta charset="UTf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href ="fizzbuzz.css">
     <script src="fizzbuzz.js" defer></script>
     <title>fizzBuzz Page</title>
 </head>
 <body>
-    <div id="outer-container">
-        <header class="header">
-        fIZZBUZZ
-        </header>
-         <div class="register">
-         <div class="start">
-      <input class="btnStart" type="button" value="START PLAY">
-      <input id="btnReset" type="button" value="RESET">
-      <div class = "status-cont">
-       <p id="game-status">Player goes now</p>  
+<div id="outer-container">
+  <header class="header">
+        <h1>FIZZBUZZ</h1>
+        <h2>QUIZ FOR FUN</h2>
+  </header>
+    <div class="register">
+         <div class="form_1">
+      <form action>
+        Starting Value:
+        <input type="number" name="field" id="minInput"  value="1" min="1" max="99">
+        <br>
+        Ending Value:
+        <input type="number" name="field" id="maxInput"  value ="100" min="2" max="100"> 
+        <br>
+      </form>
+        <button id = "subbtn" class="btnone">SUBMIT</button>
       </div>
+      <div class="form_2">
+        <button class="fizzBtn" id="fzbtn">FIZZ</button><br>
+        <br>
+        <button class="buzzBtn" id="bzbtn">BUZZ</button><br>
+        <br>
+        <button class="fizzbuzzBtn" id="fzbzbtn">FIZZBUZZ</button>
+      </div>
+      <div play_reset>
+        <button class="btnReset" id="Resetbtn">RESET</button>
         </div>
-        </div>
-    <div id="play_area">
-    <div id="game_grid">
+      </div>
+      <div class="rules">
+      <h3>Click on the cell to see FIZZ BUZZ or FIZZBUZZ</h3>
+      <p>All numbers that contain a 3 or are a multiple of 3 are Fizz! All numbers that contain a 5 or are a multiple of 5 are Buzz! Any numbers that fit both of the above criteria are Fizz Buzz!</p>
+      </div>      
+<div id="play_area">
+<div id="game_grid">
 <div class="cell num" id="sq1">1</div>
 <div class="cell num" id="sq2">2</div>
 <div class="cell fizz" id="sq3">3</div>
@@ -124,75 +144,8 @@
 <div class="cell num" id="sq98">98</div>
 <div class="cell fizz" id="sq99">99</div>
 <div class="cell buzz" id="sq100">100</div>
-<div class="cell bzz" id="sq101">BUZZ</div>
-<div class="cell bzz" id="sq102">BUZZ</div>
-<div class="cell bzz" id="sq103">BUZZ</div>
-<div class="cell bzz" id="sq104">BUZZ</div>
-<div class="cell bzz" id="sq105">BUZZ</div>
-<div class="cell bzz" id="sq106">BUZZ</div>
-<div class="cell bzz" id="sq107">BUZZ</div>
-<div class="cell bzz" id="sq108">BUZZ</div>
-<div class="cell bzz" id="sq109">BUZZ</div>
-<div class="cell bzz" id="sq110">BUZZ</div>
-<div class="cell bzz" id="sq111">BUZZ</div>
-<div class="cell bzz" id="sq112">BUZZ</div>
-<div class="cell bzz" id="sq113">BUZZ</div>
-<div class="cell bzz" id="sq114">BUZZ</div>
-<div class="cell bzz" id="sq115">BUZZ</div>
-<div class="cell bzz" id="sq116">BUZZ</div>
-<div class="cell bzz" id="sq117">BUZZ</div>
-<div class="cell fzz" id="sq118">FIZZ</div>
-<div class="cell fzz" id="sq119">FIZZ</div>
-<div class="cell fzz" id="sq120">FIZZ</div>
-<div class="cell fzz" id="sq121">FIZZ</div>
-<div class="cell fzz" id="sq122">FIZZ</div>
-<div class="cell fzz" id="sq123">FIZZ</div>
-<div class="cell fzz" id="sq124">FIZZ</div>
-<div class="cell fzz" id="sq125">FIZZ</div>
-<div class="cell fzz" id="sq126">FIZZ</div>
-<div class="cell fzz" id="sq127">FIZZ</div>
-<div class="cell fzz" id="sq128">FIZZ</div>
-<div class="cell fzz" id="sq129">FIZZ</div>
-<div class="cell fzz" id="sq130">FIZZ</div>
-<div class="cell fzz" id="sq131">FIZZ</div>
-<div class="cell fzz" id="sq132">FIZZ</div>
-<div class="cell fzz" id="sq133">FIZZ</div>
-<div class="cell fzz" id="sq134">FIZZ</div>
-<div class="cell fzz" id="sq135">FIZZ</div>
-<div class="cell fzz" id="sq136">FIZZ</div>
-<div class="cell fzz" id="sq137">FIZZ</div>
-<div class="cell fzz" id="sq138">FIZZ</div>
-<div class="cell fzz" id="sq139">FIZZ</div>
-<div class="cell fzz" id="sq140">FIZZ</div>
-<div class="cell fzz" id="sq141">FIZZ</div>
-<div class="cell fzz" id="sq142">FIZZ</div>
-<div class="cell fzz" id="sq143">FIZZ</div>
-<div class="cell fzz" id="sq144">FIZZ</div>
-<div class="cell fzz" id="sq145">FIZZ</div>
-<div class="cell fzz" id="sq146">FIZZ</div>
-<div class="cell fzz" id="sq147">FIZZ</div>
-<div class="cell fzz" id="sq148">FIZZ</div>
-<div class="cell fzz" id="sq149">FIZZ</div>
-<div class="cell fzz" id="sq150">FIZZ</div>
-<div class="cell fzz" id="sq151">FIZZ</div>
-<div class="cell fzbz" id="sq152"><p>FIZZ<br>BUZZ</p></div>
-<div class="cell fzbz" id="sq153"><p>FIZZ<br>BUZZ</p></div>
-<div class="cell fzbz" id="sq154"><p>FIZZ<br>BUZZ</p></div>
-<div class="cell fzbz" id="sq155"><p>FIZZ<br>BUZZ</p></div>
-<div class="cell fzbz" id="sq156"><p>FIZZ<br>BUZZ</p></div>
-<div class="cell fzbz" id="sq157"><p>FIZZ<br>BUZZ</p></div>
-<div class="cell fzbz" id="sq158"><p>FIZZ<br>BUZZ</p></div>
-<div class="cell fzbz" id="sq159"><p>FIZZ<br>BUZZ</p></div>
-<div class="cell fzbz" id="sq160"><p>FIZZ<br>BUZZ</p></div>
-<div class="cell fzbz" id="sq161"><p>FIZZ<br>BUZZ</p></div>
-<div class="cell fzbz" id="sq162"><p>FIZZ<br>BUZZ</p></div>
- 
- 
- 
- 
- 
 </div> <!-- close game_grid -->
 </div> <!-- close play_area -->
-</div> <!-- close outer-container -->
+</div> <!-- close outer-container --> 
 </body>
 </html>
