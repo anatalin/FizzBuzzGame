@@ -6,155 +6,140 @@ const minInp = document.querySelector("#minInput");
 const sbtn = document.getElementById("subbtn");
 const fizzbtn = document.getElementById("fzbtn");
 const buzzbtn = document.getElementById("bzbtn");
-const fizzbuzzbtn = document.getElementById("fzbzbtn");
+const fizzbuzzbtn = document.getElementById ("fzbzbtn");
 const gameGrid = document.querySelector("#game_grid");
 
-// отдельные функции, которые по числу возвращают, является ли оно fizzbuzz, fizz или buzz
-function isFizzBuzz(num) {
-    return num % 5 === 0 && num % 3 === 0;
-}
 
-function isFizz(num) {
-    return num % 3 === 0;
-}
-
-function isBuzz(num) {
-    return num % 5 === 0;
-}
 
 function onClick(event) {
     console.log("Event of type", event.type);
     const cl = event.currentTarget;
     console.log("My id is", cl.id);
-    const num_str = cl.id.slice(2);
+    const num_str=cl.id.slice(2);
     const num = parseInt(num_str);
-    if (isNaN(num)) {
-        return;
-    }
+    if (isNaN(num))
+    {
+        return; 
+    } 
 
-    console.log("My number is", num);
-    //console.log(`onClick${i}`);
+console.log("My number is",num ); 
+//console.log(`onClick${i}`);
 
-    if (isFizzBuzz(num)) {
-        cl.classList.add("fizzbuzz_selected");
-        console.log("This is fizzbuzz");
-    }
-    else if (isFizz(num)) {
-        cl.classList.add("fizz_selected");
-        console.log("This is fizz");
-    }
-    else if (isBuzz(num)) {
-        cl.classList.add("buzz_selected");
-        console.log("This is buzz");
-    }
+if (num % 5 === 0 && num % 3 === 0) {
+cl.classList.add("fizzbuzz_selected");
+console.log("This is fizzbuzz");
 }
+else if (num % 3 == 0) {
+    cl.classList.add("fizz_selected");
+    console.log("This is fizz");    
+}
+else if (num % 5 == 0) {
+    cl.classList.add("buzz_selected"); 
+    console.log("This is buzz");   
+} 
+} 
 
 
 function onShowAllFiz() {
     const allFizzCells = document.getElementsByClassName("fizz");
-    for (let i = 0; i < allFizzCells.length; i++) {
+    for (let i=0;i<allFizzCells.length;i++) {
         allFizzCells[i].classList.add("fizz_selected");
-    }
-}
+    }           
+ }
 
-function onShowAllBuzz() {
+function onShowAllBuzz(){
     const allBuzzCells = document.getElementsByClassName("buzz");
-    for (let i = 0; i < allBuzzCells.length; i++) {
+    for (let i = 0; i<allBuzzCells.length; i++) {
         allBuzzCells[i].classList.add("buzz_selected");
     }
 }
 
-function onShowAllFizzBuzz() {
-    const allFizzBuzzCells = document.getElementsByClassName("fizzbuzz");
-    for (let i = 0; i < allFizzBuzzCells.length; i++) {
-        allFizzBuzzCells[i].classList.add("fizzbuzz_selected");
+function onShowAllFizzBuzz () {
+    const allFizzBuzzCells = document.getElementsByClassName ("fizzbuzz");
+    for (let i=0; i<allFizzBuzzCells.length; i++){
+    allFizzBuzzCells[i].classList.add("fizzbuzz_selected");
     }
-}
+} 
 
 function onClear() {
-    console.log(`My starting value is ${minInp.value}`);
-    console.log(`My ending Value is ${maxInp.value}`);
-    console.log("Clear all cells");
-    while (gameGrid.firstChild) {
-        gameGrid.removeChild(gameGrid.firstChild);
-    }
+console.log (`My starting value is ${minInp.value}`);
+console.log (`My ending Value is ${maxInp.value}`);
+console.log("Clear all cells");  
+while (gameGrid.firstChild) {
+    gameGrid.removeChild(gameGrid.firstChild);
+}
 }
 
-function onCreate() {
-    console.log("Adding new cells");
+function onCreate(){
+console.log("Adding new cells");
+const min = parseInt(minInp.value);
+const max = parseInt(maxInp.value);
 
-    // т.к. minInp.value - это строка, нужно сначала получить число, чтобы сравнивать
-    const min = parseInt(minInp.value);
-    const max = parseInt(maxInp.value);
+if (min > max) {
+    console.log(`Starting value must be >= than ending value`);
+    return;
+}
 
-    if (min > max) {
-        console.log(`Starting value must be >= than ending value`);
-        return;
-    }
+for (let i = min; i <= max; i++) {
+  
+    const newCell = document.createElement("div");
+    newCell.classList.add("cell");
+    newCell.innerText = i;
 
-    for (let i = min; i <= max; i++) {
-        // создаём ячейку
-        const newCell = document.createElement("div");
-        newCell.classList.add("cell");
-
-        // пишем на кнопке текст
-        newCell.innerText = i;
-
-        // определяем, какой класс ей добавить
-        let className = '';
-        if (isFizzBuzz(i)) {
-            className = 'fizzbuzz';
+    let className = '';
+    if (i % 5 === 0 && i % 3 === 0) {
+        className = 'fizzbuzz';
+        console.log("This is fizzbuzz");
         }
-        else if (isFizz(i)) {
+        else if (i % 3 == 0) {
             className = 'fizz';
+            console.log("This is fizz");    
         }
-        else if (isBuzz(i)) {
-            className = 'buzz';
-        }
-        else {
-            className = 'num';
-        }
-
-        newCell.classList.add(className);
-        newCell.id = `sq${i}`;
-
-        // добавляем обработчик события
-        newCell.addEventListener("click", onClick);
-
-        gameGrid.appendChild(newCell);
+        else if (i % 5 == 0) {
+            className = 'buzz'; 
+            console.log("This is buzz");   
     }
+    else {
+        className = 'num';
+    }
+ 
+newCell.classList.add(className);
+newCell.id = `sq${i}`;
+newCell.addEventListener("click", onClick);
+gameGrid.appendChild(newCell);
+}
 }
 
 function addListeners() {
-    console.log("Adding Listeners");
-    console.log(cell.length);
-    reset.addEventListener("click", onReset);
-    buzzbtn.addEventListener("click", onShowAllBuzz);
-    fizzbtn.addEventListener("click", onShowAllFiz);
-    fizzbuzzbtn.addEventListener("click", onShowAllFizzBuzz);
-    sbtn.addEventListener("click", onClear);
-    sbtn.addEventListener("click", onCreate);
-    console.log("Submit data");
-    minInp.addEventListener('click', onClick);
-    maxInp.addEventListener('click', onClick);
-    for (let i = 0; i < cell.length; i++) {
-        const cl = cell[i];
-        console.log(cl.id);
-        cl.addEventListener("click", onClick);
-    }
+   console.log("Adding Listeners");
+   console.log(cell.length);
+   reset.addEventListener("click", onReset);
+   buzzbtn.addEventListener("click", onShowAllBuzz);
+   fizzbtn.addEventListener("click", onShowAllFiz);
+   fizzbuzzbtn.addEventListener("click", onShowAllFizzBuzz);
+   sbtn.addEventListener("click", onClear);
+   sbtn.addEventListener("click", onCreate);
+   minInp.addEventListener('click', onClick);
+   maxInp.addEventListener('click', onClick);
+   console.log("Submit data");
+   for (let i=0; i < cell.length; i++){
+    const cl = cell[i]; 
+    console.log(cl.id);
+    cl.addEventListener("click", onClick); 
 }
+}   
 
 function onReset() {
-    for (let i = 0; i < cell.length; i++) {
-        const c = cell[i];
-        c.classList.remove("buzz_selected");
-        c.classList.remove("fizz_selected");
-        c.classList.remove("fizzbuzz_selected");
-        console.log("Resetting Game");
-    }
+for (let i=0; i < cell.length; i++){
+    const c = cell[i];
+    c.classList.remove("buzz_selected");
+    c.classList.remove("fizz_selected");
+    c.classList.remove("fizzbuzz_selected");
+    console.log("Resetting Game");
 }
-
-function main() {
+}
+    
+function main (){
     console.log("Running main");
     addListeners();
 }
